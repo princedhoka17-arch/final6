@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Book Appointment | Pink Nail 💅</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">💅 Pink Nail</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="booking.html" class="active">Booking</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a> <!-- ADDED -->
+  </nav>
+</header>
+
+<section class="booking-container animate">
+
+  <button class="back-btn" onclick="goBack()">← Back</button>
+
+  <h1 class="title">Book Appointment 💅✨</h1>
+
+  <!-- SERVICES -->
+  <div class="card">
+    <h3>Choose Your Services 💖</h3>
+
+    <!-- NAIL SERVICES -->
+    <div class="service-dropdown">
+      <div class="dropdown-header" onclick="toggleDropdown('nail')">
+        💅 Nail Services
+      </div>
+      <div id="nail" class="dropdown-content">
+        <div onclick="addService('Nail Art')">Nail Art</div>
+        <div onclick="addService('Nail Extensions')">Nail Extensions</div>
+        <div onclick="addService('Gel Polish')">Gel Polish</div>
+        <div onclick="addService('Shellac')">Shellac</div>
+      </div>
+    </div>
+
+    <!-- HAND & FOOT CARE -->
+    <div class="service-dropdown">
+      <div class="dropdown-header" onclick="toggleDropdown('handfoot')">
+        🌸 Hand & Foot Care
+      </div>
+      <div id="handfoot" class="dropdown-content">
+        <div onclick="addService('Manicure')">Manicure</div>
+        <div onclick="addService('Pedicure')">Pedicure</div>
+        <div onclick="addService('Foot Massage')">Foot Massage</div>
+      </div>
+    </div>
+
+    <!-- HAIR SERVICES -->
+    <div class="service-dropdown">
+      <div class="dropdown-header" onclick="toggleDropdown('hair')">
+        💇‍♀️ Hair Services
+      </div>
+      <div id="hair" class="dropdown-content">
+        <div onclick="addService('Haircut')">Haircut</div>
+        <div onclick="addService('Hair Spa')">Hair Spa</div>
+        <div onclick="addService('Global Color')">Global Color</div>
+        <div onclick="addService('Highlights')">Highlights</div>
+      </div>
+    </div>
+
+    <!-- SKIN & SPA -->
+    <div class="service-dropdown">
+      <div class="dropdown-header" onclick="toggleDropdown('skin')">
+        ✨ Skin & Spa
+      </div>
+      <div id="skin" class="dropdown-content">
+        <div onclick="addService('Facial')">Facial</div>
+        <div onclick="addService('Head Massage')">Head Massage</div>
+        <div onclick="addService('Body Massage')">Body Massage</div>
+      </div>
+    </div>
+
+    <!-- SELECTED -->
+    <div id="selectedServices" class="selected-list">
+      No services added yet 💅
+    </div>
+
+  </div>
+
+  <!-- USER DETAILS -->
+  <div class="card">
+    <h3>Your Details ✨</h3>
+
+    <input type="text" id="userName" placeholder="Your Name 💖">
+    <input type="tel" id="userPhone" placeholder="Phone Number 📞" maxlength="10">
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <h3>Order Summary 💅</h3>
+    <div id="summary">No services selected yet.</div>
+  </div>
+
+  <button class="main-btn" onclick="submitBooking()">
+    Book via WhatsApp 💖
+  </button>
+
+</section>
+
+<!-- THANK YOU MODAL -->
+<!-- <div id="thankYouModal" class="modal">
+  <div class="modal-content">
+    <div class="checkmark">✔</div>
+    <h2>Booking Confirmed 💖</h2>
+    <p>See you soon 💅✨</p>
+  </div>
+</div> -->
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

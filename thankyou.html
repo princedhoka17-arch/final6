@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thank You | Pink Nail 💅</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ================= BODY ================= */
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background: linear-gradient(135deg,#fff0f3,#ffe5ec);
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  min-height:100vh;
+  padding:40px 15px;
+
+  overflow-x:hidden; /* 🔥 FIX MOBILE OVERFLOW */
+}
+
+/* ================= MAIN BOX ================= */
+.thankyou-box{
+  background:white;
+  padding:35px 25px;
+  border-radius:18px;
+  text-align:center;
+  max-width:420px;
+  width:100%;
+  box-shadow:0 15px 40px rgba(255,77,109,0.2);
+  animation:pop 0.5s ease;
+
+  position:relative;
+  z-index:2;
+}
+
+/* ================= GLOW CIRCLE + TICK ================= */
+.success-circle{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:3px solid #ff4d6d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 15px;
+  position:relative;
+}
+
+.success-circle::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:rgba(255,77,109,0.2);
+  animation:pulse 2s infinite;
+}
+
+.checkmark{
+  width:34px;
+  z-index:2;
+}
+
+.checkmark path{
+  stroke:#ff4d6d;
+  stroke-width:4;
+  fill:none;
+  stroke-dasharray:100;
+  stroke-dashoffset:100;
+  animation:draw 0.8s ease forwards 0.3s;
+}
+
+/* ================= TEXT ================= */
+h2{
+  font-family:'Playfair Display', serif;
+  color:#ff4d6d;
+  margin-bottom:8px;
+}
+
+p{
+  font-size:14px;
+  color:#555;
+  margin-bottom:22px;
+  line-height:1.5;
+}
+
+/* ================= WHATSAPP BUTTON ================= */
+.whatsapp-btn{
+  display:block;
+  background:#25d366;
+  color:white;
+  padding:12px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:14px;
+  margin-bottom:15px;
+  position:relative;
+  overflow:hidden;
+}
+
+.whatsapp-btn::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(255,255,255,0.2);
+  top:0;
+  left:-100%;
+  transition:0.5s;
+}
+
+.whatsapp-btn:hover::after{
+  left:100%;
+}
+
+/* ================= SMALL TEXT ================= */
+.small-text{
+  font-size:13px;
+  color:#777;
+  margin-bottom:6px;
+}
+
+/* ================= NUMBER BOX ================= */
+.number-box{
+  border:1px solid #ffd6dd;
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+.number-box a{
+  text-decoration:none;
+  color:#ff4d6d;
+  font-weight:600;
+}
+
+/* ================= LOCATION ================= */
+.location{
+  font-size:12px;
+  color:#777;
+  margin-bottom:15px;
+}
+
+/* ================= INSTAGRAM ================= */
+.follow{
+  font-size:13px;
+  margin-bottom:5px;
+}
+
+.instagram{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+}
+
+.instagram a{
+  text-decoration:none;
+  color:#ff4d6d;
+  font-size:14px;
+}
+
+/* ================= POPUP ================= */
+.popup{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#ff4d6d;
+  color:white;
+  padding:10px 18px;
+  border-radius:25px;
+  font-size:13px;
+  display:none;
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  z-index:9999;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes draw{
+  to{stroke-dashoffset:0;}
+}
+
+@keyframes pulse{
+  0%{transform:scale(1); opacity:0.6;}
+  70%{transform:scale(1.4); opacity:0;}
+  100%{opacity:0;}
+}
+
+@keyframes pop{
+  0%{transform:scale(0.85); opacity:0;}
+  100%{transform:scale(1); opacity:1;}
+}
+
+/* ================= MOBILE FIX ================= */
+@media(max-width:480px){
+
+  body{
+    padding:25px 12px;
+  }
+
+  .thankyou-box{
+    padding:28px 18px;
+  }
+
+  h2{
+    font-size:22px;
+  }
+
+  .whatsapp-btn{
+    width:100%;
+  }
+}
+
+/* ================= SAFE AREA FIX (IPHONE/ANDROID) ================= */
+@supports (padding: env(safe-area-inset-right)) {
+  body{
+    padding-left: calc(15px + env(safe-area-inset-left));
+    padding-right: calc(15px + env(safe-area-inset-right));
+  }
+}
+
+/* ================= CONFETTI CONTAINER ================= */
+#confetti-container{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:1;
+}
+
+/* ================= CONFETTI ================= */
+.confetti{
+  position:absolute;
+  width:6px;
+  height:6px;
+  opacity:0.9;
+  top:-10px;
+  border-radius:2px;
+  animation:fall linear forwards;
+  will-change:transform;
+}
+
+/* COLORS */
+.confetti:nth-child(4n){ background:#ff4d6d; }
+.confetti:nth-child(4n+1){ background:#ff85a1; }
+.confetti:nth-child(4n+2){ background:#ffd6dd; }
+.confetti:nth-child(4n+3){ background:#ffc2d1; }
+
+/* FALL */
+@keyframes fall{
+  0%{ transform:translateY(0) rotate(0deg); }
+  100%{ transform:translateY(100vh) rotate(360deg); }
+}
+
+/* ================= MOBILE CONFETTI OPTIMIZATION ================= */
+@media(max-width:768px){
+  .confetti{
+    width:4px;
+    height:4px;
+    opacity:0.8;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="confetti-container"></div>
+
+<div class="thankyou-box">
+
+  <!-- TICK -->
+  <div class="success-circle">
+    <svg class="checkmark" viewBox="0 0 52 52">
+      <path d="M14 27 L22 35 L38 18"></path>
+    </svg>
+  </div>
+
+  <h2>Thank You 💖</h2>
+
+  <p>
+    Your request is ready.<br>
+    Continue on WhatsApp to confirm your appointment.
+  </p>
+
+  <!-- WHATSAPP -->
+  <a href="#" onclick="openWhatsApp()" class="whatsapp-btn">
+    💬 Chat with us on WhatsApp
+  </a>
+
+  <!-- CALL -->
+  <div class="small-text">Or call us directly</div>
+
+  <div class="number-box">
+    <a href="tel:+919967563940">+91 99675 63940</a>
+  </div>
+
+  <!-- LOCATION -->
+  <div class="location">
+    📍 Pink Nails Studio, Vadodara
+  </div>
+
+  <!-- INSTAGRAM -->
+  <div class="follow">Follow us 💅</div>
+
+  <div class="instagram">
+    <i class="fab fa-instagram"></i>
+    <a href="https://instagram.com/pinknailsin" target="_blank">
+      @pinknailsin
+    </a>
+  </div>
+
+</div>
+
+<!-- POPUP -->
+<div id="popup" class="popup">Redirecting to WhatsApp...</div>
+
+<script>
+
+/* OPEN WHATSAPP */
+let whatsappOpened = false;
+
+/* OPEN WHATSAPP */
+function openWhatsApp(){
+  const message = localStorage.getItem("bookingMessage") || "";
+  const url = `https://wa.me/919967563940?text=${encodeURIComponent(message)}`;
+
+  whatsappOpened = true; // ✅ mark opened
+
+  window.location.href = url;
+}
+
+/* SHOW POPUP */
+setTimeout(()=>{
+  document.getElementById("popup").style.display="block";
+},2000);
+
+/* REDIRECT TO WHATSAPP */
+setTimeout(()=>{
+  openWhatsApp();
+},5000);
+
+/* WHEN USER RETURNS FROM WHATSAPP */
+document.addEventListener("visibilitychange", function () {
+
+  if (document.visibilityState === "visible" && whatsappOpened) {
+
+    // small delay for smooth UX
+    setTimeout(()=>{
+      window.location.href = "index.html";
+    },800);
+
+  }
+
+});
+
+const container = document.getElementById("confetti-container");
+
+function createConfettiBurst(){
+
+  const count = window.innerWidth < 768 ? 20 : 35; 
+  // reduced count = smooth mobile performance
+
+  for(let i=0;i<count;i++){
+
+    const c = document.createElement("div");
+    c.className = "confetti";
+
+    c.style.left = Math.random()*100 + "vw";
+    c.style.animationDuration = (Math.random()*2 + 2.5) + "s";
+    c.style.animationDelay = "0s";
+
+    container.appendChild(c);
+
+    // remove after animation (IMPORTANT for performance)
+    setTimeout(()=>{
+      c.remove();
+    },5000);
+
+  }
+}
+
+/* ================= INFINITE LOOP ================= */
+function startInfiniteConfetti(){
+
+  createConfettiBurst();
+
+  setInterval(()=>{
+    createConfettiBurst();
+  }, ); // every 2 sec new burst (smooth + premium feel)
+}
+
+/* START ON PAGE LOAD */
+window.addEventListener("load", startInfiniteConfetti);
+
+</script>
+
+</body>
+</html>
